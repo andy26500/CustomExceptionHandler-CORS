@@ -1,0 +1,27 @@
+﻿<!Doctype html>
+<html lang="en">
+<head>
+    <script type="text/javascript" defer src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        function go() {
+            $.ajax({
+                url: "http://localhost:23757/Demo/" + $("input[name='number']").val(),
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function(result) {
+                    $("#result").text(result);
+                },
+                error: function(xhr) {
+                    alert(xhr.responseText);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+number: <input type="number" name="number"/>
+<button type="button" onclick="go();">Test</button>
+<br/>
+result: <span id="result"></span>
+</body>
+</html>
